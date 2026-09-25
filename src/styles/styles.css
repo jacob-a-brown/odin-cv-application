@@ -4,6 +4,53 @@
     box-sizing: border-box;
 }
 
+.container {
+    height: 100%;
+    width: 100em;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.input-section {
+    grid-column: 1 / 2;
+    display: grid;
+    align-content: start;
+}
+
+.general-input {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+}
+
+.general-input input,
+.general-input textarea {
+    width: 100%;
+}
+
+.input-render {
+    grid-column: 2 / 3;
+}
+
+
 .general-information {
     padding-top: 3px;
 }
+
+.workexperience-inputs {
+    border: 1px black solid;
+}
+
+.school, .general-information, .work-experience  {
+    border: 1px solid black;
+}
+
+.school {
+    padding-top: 5px;
+}
+
+.rendered-work-experience {
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+

@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function GeneralInformation({ labelText, type, className="general-information" }){
-  const [info, setInfo] = useState("");
+function GeneralInput({ label, name, value="", type="text", className="general-input" }){
+  const id = crypto.randomUUID();
+  const [info, setInfo] = useState(value);
 
   function handleInfoChange(e) {
     setInfo(e.target.value);
@@ -9,9 +10,24 @@ function GeneralInformation({ labelText, type, className="general-information" }
 
   return (
     <div className={className}>
-      <label htmlFor="input">{labelText}: </label><input id="input" onChange={handleInfoChange} value={info} type={type}/>
+      <label htmlFor={id}>{label}</label><input id={id} onChange={handleInfoChange} value={info} type={type} name={name}/>
     </div>
   )
 }
 
-export default GeneralInformation
+function GeneralTextArea({ label, name, value="", className="general-input"}){
+  const id = crypto.randomUUID();
+  const [info, setInfo] = useState(value);
+
+  function handleInfoChange(e) {
+    setInfo(e.target.value);
+  }
+
+  return (
+    <div className={className}>
+      <label htmlFor={id}>{label}</label><textarea id={id} onChange={handleInfoChange} value={info} name={name}></textarea>
+    </div>
+  )
+}
+
+export { GeneralInput, GeneralTextArea }
